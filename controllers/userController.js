@@ -2,6 +2,10 @@ User = require('../models/User.js')
 
 const userController = {
 
+    showLandingPage: function (req,res){
+        res.send("working in heroku")
+    },
+
     findAllUsers : function (req,res){
         User.find().then(
             (allUsers) => {
