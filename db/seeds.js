@@ -4,14 +4,13 @@ const Stock = require('../models/Stock.js')
 
 
 User.deleteMany().then(() => {
-    User.create([{userName: "Slade Sawyer"},
-        {userName: "Sam Albetta"}]).then((users) => 
+    User.create([{userName: "Slade"},
+        {userName: "Sam"}]).then((users) => 
             {console.log("made users: " + users)})
-})
+});
 
 Account.deleteMany().then(() => {
     User.find().then( (foundUsers) => {
-        console.log("found users: " + foundUsers)
         Account.create([{accountName: "Slades Account",
                         parentUser: foundUsers[0]._id},
                         {accountName: "Sams Account",
