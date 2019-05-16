@@ -8,11 +8,9 @@ class App extends Component {
       return (
         <Router>
           <div>
-            <Switch>
               <UserDisplay/>
               <br></br>
               <AccountDisplay/>
-            </Switch>
           </div>
         </Router>
       )
