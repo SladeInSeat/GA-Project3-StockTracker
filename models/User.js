@@ -3,8 +3,7 @@ const mongoose = require('../db/connection.js');
 const userSchema = mongoose.Schema({
     userName: {
         type: String,
-        required: true,
-        lowercase: true,
+        required: true
     }
 });
 
