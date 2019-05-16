@@ -2,11 +2,11 @@ import React, { Component} from 'react'
 
 class accountDisplay extends Component {
     state = {
-        account = {
+        account : {
             accountName: "NewAccount",
             parentUser: "5cdd79d9ee985408362348bc"
         },
-        newAccount = {
+        newAccount : {
             accountName: "",
             parentUser: ""
         }
