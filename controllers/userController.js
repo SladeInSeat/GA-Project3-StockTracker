@@ -15,7 +15,7 @@ const userController = {
     },
 
     findUserByName : function (req,res){
-        User.find({userName: req.params.userName}).then(
+        User.find({userName: req.body.userName}).then(
             (user) => {
                 res.json(user)
             }
@@ -24,8 +24,8 @@ const userController = {
 
     createUser : function(req,res){
         User.create({userName: req.body.userName}).then(
-            () => {
-                res.redirect('/users')
+            (newUser) => {
+                res.json(newUser)
             }
         )
     },
@@ -34,12 +34,12 @@ const userController = {
         User.findByIdAndUpdate(req.body.userId,
                             {userName : req.body.userName}, 
                             {new:true})
-            .then( () => {res.redirect('/users')
+            .then( (updatedUser) => {res.json(updatedUser)
         });
     },
 
     deleteUser: function(req,res){
-        User.findByIdAndDelete(req.body.userId).then( () => {
+        User.findByIdAndDelete(req.body.userId).then( () => {//  not sure what to return
             res.redirect('/users')
         })
     }

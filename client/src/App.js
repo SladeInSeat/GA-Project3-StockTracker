@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import userDisplay from './components/userDisplay.js'
+import UserDisplay from './components/userDisplay.js'
+import AccountDisplay from './components/accountDisplay.js'
 
 class App extends Component {
     render () {
@@ -8,7 +9,9 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
-              <Route exact path="/" component={userDisplay}/>
+              <UserDisplay/>
+              <br></br>
+              <AccountDisplay/>
             </Switch>
           </div>
         </Router>
