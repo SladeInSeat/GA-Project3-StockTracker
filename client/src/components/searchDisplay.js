@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SearchResults from './searchResults.js'
 import SearchForm from './searchForm.js'
 
-class searchDisplay extends Component {
+class SearchDisplay extends Component {
     state = {
         accountId: "",
         stockList: [],
@@ -39,4 +39,4 @@ class searchDisplay extends Component {
     }
 }
 
-export default searchDisplay;
+export default SearchDisplay;

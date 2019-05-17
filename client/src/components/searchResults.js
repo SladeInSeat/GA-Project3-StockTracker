@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function searchResults(props) {
+export default function SearchResults(props) {
     const stockList = props.stockList
         
     const viewStockList = stockList.map((stockObj, index) => {
