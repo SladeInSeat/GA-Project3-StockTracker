@@ -5,7 +5,6 @@ class userDisplay extends Component{
         user: {}
     }
 
-    
     render(){
         let newUserProps = this.props.user
         console.log(`userDisplay:${newUserProps}`)

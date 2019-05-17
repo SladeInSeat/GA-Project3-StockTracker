@@ -13,10 +13,12 @@ class accountDisplay extends Component {
     }
 
     render(){
+        let userId = this.props.userId
         return (
             <div>
                 Account Name: {this.state.account.accountName}<br></br>
                 Parent User: {this.state.account.parentUser}
+                test id: {userId}
             </div>
         )
     }

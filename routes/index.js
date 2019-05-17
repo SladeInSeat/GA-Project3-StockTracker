@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const userController = require('../controllers/userController.js')
 const accountController = require('../controllers/accountController.js')
+const stockController = require('../controllers/stockController.js')
 
 //   show all users
 router.get("/users", userController.findAllUsers)
@@ -35,5 +36,17 @@ router.post("/accounts", accountController.updateAccount)
 
 //  delete account
 router.delete("/accounts", accountController.deleteAccount)
+
+//  show all stocks
+router.get("/stocks", stockController.findAllStocks)
+
+//  find stock by ticker
+router.get("/stock", stockController.findStockByTicker)
+
+// add id to accountParent
+router.patch("stock/setParentAccount", stockController.setStockParentAccount)
+
+// remove id from accountParent
+router.patch("stock/removeParentAccount", stockController.removeStockParentAccount)
 
 module.exports = router 
