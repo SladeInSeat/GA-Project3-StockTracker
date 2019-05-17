@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import UserDisplay from "./userDisplay.js"
 import AccountDisplay from "./accountDisplay"
 import axios from 'axios'
+import searchDisplay from './searchDisplay.js';
 
 class Dashboard extends Component{
     state = {
@@ -29,7 +30,8 @@ class Dashboard extends Component{
                 Dashboard
                 <div>
                     <UserDisplay user={this.state.user}/><br></br>
-                    <AccountDisplay userId={this.state.user._id}/>
+                    <AccountDisplay userId={this.state.user._id}/><br></br>
+                    <searchDisplay userId={this.state.user._id}/>
 
                 </div>
             </div>

@@ -4,8 +4,10 @@ const Stock = require('../models/Stock.js')
 
 
 User.deleteMany().then(() => {
-    User.create([{userName: "Slade"},
-        {userName: "Sam"}]).then((users) => 
+    User.create([
+        {userName: "Slade"},
+        {userName: "Sam"}
+    ]).then((users) => 
             {console.log("made users: " + users)})
 });
 
