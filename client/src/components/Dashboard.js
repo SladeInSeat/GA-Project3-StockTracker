@@ -5,7 +5,10 @@ import axios from 'axios'
 
 class Dashboard extends Component{
     state = {
-        user: {}
+        user: {
+            userName: "",
+            _id: ""
+        }
     };
 
 
@@ -23,9 +26,9 @@ class Dashboard extends Component{
     render(){
         return (
             <div>
-                Dashboard {this.state.user.userName}
+                Dashboard
                 <div>
-                    <UserDisplay user={this.state.user}/>
+                    <UserDisplay user={this.state.user}/><br></br>
                     <AccountDisplay userId={this.state.user._id}/>
 
                 </div>

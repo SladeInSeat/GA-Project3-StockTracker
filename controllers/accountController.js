@@ -10,7 +10,7 @@ const accountController = {
     },
 
     findAccountsOfUser : function (req,res){
-        Account.find({parentUser: req.body.userId})
+        Account.find({parentUser: req.query.parentUser})
             .then( (userAccounts) =>{
                 res.json(userAccounts)
             })
