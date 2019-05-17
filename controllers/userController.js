@@ -15,7 +15,7 @@ const userController = {
     },
 
     findUserByName : function (req,res){
-        User.find({userName: req.body.userName}).then(
+        User.find({userName: req.query.userName}).then(
             (user) => {
                 res.json(user)
             }

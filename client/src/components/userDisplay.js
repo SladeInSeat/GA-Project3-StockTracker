@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 
 class userDisplay extends Component{
     state = {
-        user: {userName: 'Slade'},
-        newUser: {
-            userName: ''
-        }
+        user: {}
     }
 
+    
     render(){
+        let newUserProps = this.props.user
+        console.log(`userDisplay:${newUserProps}`)
         return(
             <div>
-                Username: {this.state.user.userName}
+                User: {newUserProps.userName}
             </div>
         )
     }
