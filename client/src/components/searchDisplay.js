@@ -17,7 +17,7 @@ class SearchDisplay extends Component {
         //  change state to start, will eventually perform 
         //  stock.search with state.searchCriteria, input
         //  by user in searchForm
-        this.setState({searchCriteria: "stockSearch worked"})
+        this.setState({searchCriteria: "stockSearch worked, beeiotch"})
     }
 
     render(){

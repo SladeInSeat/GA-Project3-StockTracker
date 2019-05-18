@@ -10,6 +10,9 @@ router.get("/users", userController.findAllUsers)
 //  show landing page
 router.get("/", userController.showLandingPage)
 
+//  find user by name, create if does not exist
+router.patch("/login", userController.login)
+
 //  find user by name
 router.get("/user", userController.findUserByName)
 
