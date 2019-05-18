@@ -14,15 +14,24 @@ class Dashboard extends Component{
         logInQeury: ""
     };
 
-    handleInputChange = event => {
+    handleLogInChange = event => {
         this.setState({logInQeury: event.target.value})
     }
 
-    handleSubmitQuery = () => {
+    handleLoginQuery = () => {
         axios.patch('/login',{userName: this.state.logInQeury}
             ).then((res) => {
                 this.setState({user:res.data})
             })
+    }
+
+    handleUserLogout = () => {
+        this.setState({user: {
+                            userName: "",
+                            _id: ""
+                        },
+                        logInQeury: ""
+        })
     }
 
     // componentDidMount(){
@@ -42,13 +51,16 @@ class Dashboard extends Component{
                 Dashboard
                 <div>
                     {this.state.user.userName ?
-                    <UserDisplay user={this.state.user}/>
+                    <UserDisplay 
+                        user={this.state.user}
+                        handleUserLogout={this.handleUserLogout}
+                    />
                     :
                     <Login
                         logInQeury={this.logInQeury}
-                        handleInputChange={this.handleInputChange}
-                        handleSubmitQuery={this.handleSubmitQuery}
-                        />}
+                        handleLogInChange={this.handleLogInChange}
+                        handleLoginQuery={this.handleLoginQuery}
+                    />}
                     <br></br>
                     <AccountDisplay userId={this.state.user._id}/><br></br>
                     <SearchDisplay userId={this.state.user._id}/>

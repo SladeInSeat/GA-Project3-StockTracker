@@ -6,9 +6,9 @@ export default function Login(props){
             <input 
                 type="text" 
                 value={props.loginQeury}
-                onChange={props.handleInputChange}
+                onChange={props.handleLogInChange}
             />
-            <button onClick={props.handleSubmitQuery}>Log in or Create</button>
+            <button onClick={props.handleLoginQuery}>Log in or Create</button>
         </div>
     );
 }

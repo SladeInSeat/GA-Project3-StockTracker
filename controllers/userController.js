@@ -50,8 +50,6 @@ const userController = {
             .then((user => {
                 res.json(user)
             }))
-            .then(res.json)
-
     }
 }
 

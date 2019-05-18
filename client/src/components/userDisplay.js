@@ -10,12 +10,16 @@ class userDisplay extends Component{
 
     render(){
         let newUserProps = this.props.user
+        let handleUserLogout = this.props.handleUserLogout
         console.log(newUserProps)
         return(
             <div>
                 <br></br>
                 userDisplay<br></br>
                 User: {newUserProps.userName}
+                <br></br>
+                <button onClick={handleUserLogout}>Log Out</button>
+                <br></br>
             </div>
         )
     }
