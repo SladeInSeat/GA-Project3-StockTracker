@@ -93,8 +93,12 @@ class Dashboard extends Component {
                             handleLoginQuery={this.handleLoginQuery}
                         />}
                     <br></br>
-                    <AccountDisplay userId={this.state.user._id} /><br></br>
-                    <SearchDisplay userId={this.state.user._id} />
+                    <AccountDisplay 
+                        userId={this.state.user._id}
+                    />
+                    <br></br>
+                    <SearchDisplay 
+                        userId={this.state.user._id} />
                 </div>
             </div>
         )

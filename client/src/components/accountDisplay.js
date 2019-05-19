@@ -58,13 +58,33 @@ class accountDisplay extends Component {
         })
             .then((createdAccount) => {
                 console.log(createdAccount.data)
-                this.setState({ account: createdAccount.data,
-                                newAccountName: "" })
+                this.setState({
+                    account: createdAccount.data,
+                    newAccountName: ""
+                })
             })
             .catch((error) => {
                 console.log(error)
             })
     }
+
+    handleAccountDelete = () => {
+        axios.delete('/accounts', { data: { _id: this.state.account._id } })
+            .then((res) => {
+                console.log("req.body sent as res: " + res.data)
+                let newAccountState = { ...this.state.account }
+                newAccountState._id = ""
+                newAccountState.accountName = ""
+                this.setState({
+                    account: newAccountState,
+                    newAccountName: ""
+                })
+            })
+            .catch((error) =>{
+                console.log(error)
+            })
+    }
+
 
 
     render() {
@@ -82,6 +102,7 @@ class accountDisplay extends Component {
                         />
                         <button onClick={this.handleAccountNameUpdate}>Edit Account Name</button>
                         <button onClick={this.handleAccountCreate}>Create New Account</button>
+                        <button onClick={this.handleAccountDelete}>Delete this Account</button>
 
                     </div>
                     :
