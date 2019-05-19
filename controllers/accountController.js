@@ -18,7 +18,8 @@ const accountController = {
       
     createAccount : function (req,res){
         Account.create({accountName: req.body.accountName,
-                        parentUser: req.body.parentUserId})
+                        parentUser: req.body.parentUser
+                    })
                 .then((newAccount) => {
                     res.json(newAccount)
                 })

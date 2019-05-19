@@ -45,7 +45,6 @@ const userController = {
     },
 
     login: function(req,res){
-        console.log(`req.username from controller: ${req.body.userName}`)
         User.findOneAndUpdate({userName: req.body.userName},{},{new: true, upsert: true})
             .then((user => {
                 res.json(user)
