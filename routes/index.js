@@ -35,7 +35,7 @@ router.get("/account", accountController.findAccountsOfUser)
 router.post("/accounts", accountController.createAccount)
 
 //  patch account
-router.post("/accounts", accountController.updateAccount)
+router.patch("/accounts", accountController.updateAccount)
 
 //  delete account
 router.delete("/accounts", accountController.deleteAccount)

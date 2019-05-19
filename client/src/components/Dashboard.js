@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 import Login from './Login.js'
 import UserDisplay from "./userDisplay.js"
 import AccountDisplay from "./accountDisplay.js"
 import SearchDisplay from './searchDisplay.js';
 
-class Dashboard extends Component{
+class Dashboard extends Component {
     state = {
         user: {
             userName: "",
@@ -16,14 +16,14 @@ class Dashboard extends Component{
     };
 
     handleLogInChange = event => {
-        this.setState({logInQeury: event.target.value})
+        this.setState({ logInQeury: event.target.value })
     }
 
     handleLoginQuery = () => {
-        axios.patch('/login',{userName: this.state.logInQeury}
-            ).then((res) => {
-                this.setState({user:res.data})
-            })
+        axios.patch('/login', { userName: this.state.logInQeury }
+        ).then((res) => {
+            this.setState({ user: res.data })
+        })
     }
 
     handleUserLogout = () => {
@@ -39,26 +39,27 @@ class Dashboard extends Component{
 
     handleUserDelete = () => {
         let userId = this.state.user._id
-        axios.delete('/users',{data:{_id: userId }}).then( () => {
+        axios.delete('/users', { data: { _id: userId } }).then(() => {
             this.handleUserLogout()
         })
     }
 
     handleUserNameChange = event => {
-        this.setState({newUserName: event.target.value})
+        this.setState({ newUserName: event.target.value })
     }
 
     handleUserNameUpdate = () => {
-        axios.patch('users',{   userId: this.state.user._id,
-                                userName: this.state.newUserName
-                            })
-            .then( (updatedUser) => {
+        axios.patch('users', {
+            userId: this.state.user._id,
+            userName: this.state.newUserName
+        })
+            .then((updatedUser) => {
                 console.log("editedUser" + updatedUser)
             });
-        let clonedUser = {...this.state.user}
+        let clonedUser = { ...this.state.user }
         clonedUser.userName = this.state.newUserName
-        this.setState({user: clonedUser})
-      }
+        this.setState({ user: clonedUser })
+    }
 
     // componentDidMount(){
     //     let willBePropsFromLogin = ""
@@ -71,29 +72,29 @@ class Dashboard extends Component{
     //         })
     // ;}
 
-    render(){
+    render() {
         return (
             <div>
                 Dashboard
                 <div>
                     {this.state.user.userName ?
-                    <UserDisplay 
-                        user={this.state.user}
-                        handleUserLogout={this.handleUserLogout}
-                        handleUserDelete={this.handleUserDelete}
-                        newUserName={this.state.newUserName}
-                        handleUserNameChange={this.handleUserNameChange}
-                        handleUserNameUpdate={this.handleUserNameUpdate}
-                    />
-                    :
-                    <Login
-                        logInQeury={this.logInQeury}
-                        handleLogInChange={this.handleLogInChange}
-                        handleLoginQuery={this.handleLoginQuery}
-                    />}
+                        <UserDisplay
+                            user={this.state.user}
+                            handleUserLogout={this.handleUserLogout}
+                            handleUserDelete={this.handleUserDelete}
+                            newUserName={this.state.newUserName}
+                            handleUserNameChange={this.handleUserNameChange}
+                            handleUserNameUpdate={this.handleUserNameUpdate}
+                        />
+                        :
+                        <Login
+                            logInQeury={this.logInQeury}
+                            handleLogInChange={this.handleLogInChange}
+                            handleLoginQuery={this.handleLoginQuery}
+                        />}
                     <br></br>
-                    <AccountDisplay userId={this.state.user._id}/><br></br>
-                    <SearchDisplay userId={this.state.user._id}/>
+                    <AccountDisplay userId={this.state.user._id} /><br></br>
+                    <SearchDisplay userId={this.state.user._id} />
                 </div>
             </div>
         )

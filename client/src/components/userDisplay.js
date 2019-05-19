@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 
 class userDisplay extends Component{
-    // state = {
-    //     user: {
-    //         userName: "",
-    //         _id: ""
-    //     }
-    // }
 
     render(){
         let newUserProps = this.props.user
