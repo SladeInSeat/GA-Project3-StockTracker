@@ -12,7 +12,6 @@ class userDisplay extends Component{
         let newUserProps = this.props.user
         let handleUserLogout = this.props.handleUserLogout
         let handleUserDelete = this.props.handleUserDelete
-        console.log(newUserProps)
         return(
             <div>
                 <br></br>

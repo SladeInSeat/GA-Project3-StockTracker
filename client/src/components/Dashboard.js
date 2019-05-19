@@ -48,10 +48,16 @@ class Dashboard extends Component{
         this.setState({newUserName: event.target.value})
     }
 
-    handleUserNameUpdate = (event) => {
-        let cloneUser = {...this.state.user}
-        cloneUser.userName = this.state.newUserName
-        this.setState({user: cloneUser})
+    handleUserNameUpdate = () => {
+        axios.patch('users',{   userId: this.state.user._id,
+                                userName: this.state.newUserName
+                            })
+            .then( (updatedUser) => {
+                console.log("editedUser" + updatedUser)
+            });
+        let clonedUser = {...this.state.user}
+        clonedUser.userName = this.state.newUserName
+        this.setState({user: clonedUser})
       }
 
     // componentDidMount(){

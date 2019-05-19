@@ -32,7 +32,7 @@ const userController = {
 
     updateUser: function(req,res){
         User.findByIdAndUpdate(req.body.userId,
-                            {userName : req.body.userName}, 
+                            {$set: {userName: req.body.userName}}, 
                             {new:true})
             .then( (updatedUser) => {res.json(updatedUser)
         });
