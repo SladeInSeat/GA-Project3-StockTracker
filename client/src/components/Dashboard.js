@@ -11,6 +11,7 @@ class Dashboard extends Component{
             userName: "",
             _id: ""
         },
+        newUserName: "",
         logInQeury: ""
     };
 
@@ -26,20 +27,32 @@ class Dashboard extends Component{
     }
 
     handleUserLogout = () => {
-        this.setState(  {user: {
-                            userName: "",
-                            _id: ""
-                        },
-                        logInQeury: ""
+        this.setState({
+            user: {
+                userName: "",
+                _id: ""
+            },
+            newUserName: "",
+            logInQeury: ""
         })
     }
 
     handleUserDelete = () => {
         let userId = this.state.user._id
-        axios.delete('/users',{data:{_id: userId }}).then(() => {
+        axios.delete('/users',{data:{_id: userId }}).then( () => {
             this.handleUserLogout()
         })
     }
+
+    handleUserNameChange = event => {
+        this.setState({newUserName: event.target.value})
+    }
+
+    handleUserNameUpdate = (event) => {
+        let cloneUser = {...this.state.user}
+        cloneUser.userName = this.state.newUserName
+        this.setState({user: cloneUser})
+      }
 
     // componentDidMount(){
     //     let willBePropsFromLogin = ""
@@ -62,6 +75,9 @@ class Dashboard extends Component{
                         user={this.state.user}
                         handleUserLogout={this.handleUserLogout}
                         handleUserDelete={this.handleUserDelete}
+                        newUserName={this.state.newUserName}
+                        handleUserNameChange={this.handleUserNameChange}
+                        handleUserNameUpdate={this.handleUserNameUpdate}
                     />
                     :
                     <Login

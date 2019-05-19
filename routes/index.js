@@ -16,7 +16,7 @@ router.patch("/login", userController.login)
 //  find user by name
 router.get("/user", userController.findUserByName)
 
-//  create user
+//  create user //not used ?
 router.post("/users", userController.createUser)
 
 //  update user

@@ -22,6 +22,13 @@ class userDisplay extends Component{
                 <button onClick={handleUserLogout}>Log Out</button>
                 <br></br>
                 <button onClick={handleUserDelete}>Delete this user</button>
+                <br></br>
+                <input 
+                    type="text" 
+                    value={this.props.newUserName}
+                    onChange={this.props.handleUserNameChange}
+            />
+            <button onClick={this.props.handleUserNameUpdate}>Edit User Name</button>
             </div>
         )
     }
