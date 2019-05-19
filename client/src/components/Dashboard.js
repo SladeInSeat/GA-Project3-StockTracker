@@ -26,11 +26,18 @@ class Dashboard extends Component{
     }
 
     handleUserLogout = () => {
-        this.setState({user: {
+        this.setState(  {user: {
                             userName: "",
                             _id: ""
                         },
                         logInQeury: ""
+        })
+    }
+
+    handleUserDelete = () => {
+        let userId = this.state.user._id
+        axios.delete('/users',{data:{_id: userId }}).then(() => {
+            this.handleUserLogout()
         })
     }
 
@@ -54,6 +61,7 @@ class Dashboard extends Component{
                     <UserDisplay 
                         user={this.state.user}
                         handleUserLogout={this.handleUserLogout}
+                        handleUserDelete={this.handleUserDelete}
                     />
                     :
                     <Login
@@ -64,7 +72,6 @@ class Dashboard extends Component{
                     <br></br>
                     <AccountDisplay userId={this.state.user._id}/><br></br>
                     <SearchDisplay userId={this.state.user._id}/>
-
                 </div>
             </div>
         )

@@ -39,8 +39,8 @@ const userController = {
     },
 
     deleteUser: function(req,res){
-        User.findByIdAndDelete(req.body.userId).then( () => {//  not sure what to return
-            res.redirect('/users')
+        User.findByIdAndDelete(req.body._id).then( () => {
+            res.json(req.body)
         })
     },
 
