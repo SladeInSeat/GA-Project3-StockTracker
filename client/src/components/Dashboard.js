@@ -4,7 +4,6 @@ import Login from './Login.js'
 import UserDisplay from "./userDisplay.js"
 import AccountDisplay from "./accountDisplay.js"
 import SearchDisplay from './searchDisplay.js';
-import Background from './styledComponents/Containers'
 
 class Dashboard extends Component {
     state = {
@@ -72,7 +71,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <Background>Dashboard
+                Dashboard
                 <div>
                     {this.state.user.userName ?
                         <UserDisplay
@@ -99,7 +98,6 @@ class Dashboard extends Component {
                         userId={this.state.user._id}
                         activeAccount={this.state.activeAccount} />
                 </div>
-                </Background>
             </div>
         )
     }
