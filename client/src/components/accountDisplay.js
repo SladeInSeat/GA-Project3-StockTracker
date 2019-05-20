@@ -14,6 +14,28 @@ class accountDisplay extends Component {
         newAccountName: ""
     }
 
+    componentDidMount(){
+        axios.get("/account", {
+            params: { parentUser: this.props.userId }
+        }).then((res) => {
+            if (res.data[0]) {
+                this.setState({ account: res.data[0] });
+                this.props.handleActiveAccount(res.data[0]._id);
+            } else {
+                this.setState({
+                    account: {
+                        _id: "",
+                        accountName: "No Accounts",
+                        parentUser: this.props.userId
+                    },
+                    newAccountName: ""
+                })
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+    };
+
     componentDidUpdate(prevProps) {
         if (prevProps.userId !== this.props.userId) {
             axios.get("/account", {
@@ -98,7 +120,6 @@ class accountDisplay extends Component {
                 {this.props.userId ?
                     <div>
                         Account Name: {this.state.account.accountName}<br></br>
-                        Parent User: {this.state.account.parentUser}<br></br>
                         <input
                             type="text"
                             value={this.state.newAccountName}
@@ -106,12 +127,11 @@ class accountDisplay extends Component {
                         />
                         <Button onClick={this.handleAccountNameUpdate}>Edit Account Name</Button>
                         <Button onClick={this.handleAccountCreate}>Create New Account</Button>
+                        <br></br>
                         <Button onClick={this.handleAccountDelete}>Delete this Account</Button>
-
                     </div>
                     :
                     <div>
-                        props.userId is cleared so show no accounts
                     </div>
                 }
             </div>

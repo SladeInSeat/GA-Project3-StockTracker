@@ -31,7 +31,7 @@ class SearchDisplay extends Component {
         return(
             <div>
                 <div>
-                    <DisplayTitle>Search Form</DisplayTitle><br></br>
+                    <DisplayTitle>Search Form</DisplayTitle>
                     <SearchForm stockSearch={this.stockSearch}/>
                 </div>
                 <div>

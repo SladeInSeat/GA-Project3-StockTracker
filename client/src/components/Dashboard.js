@@ -3,7 +3,8 @@ import axios from 'axios'
 import Login from './Login.js'
 import UserDisplay from "./userDisplay.js"
 import AccountDisplay from "./accountDisplay.js"
-import SearchDisplay from './searchDisplay.js';
+import SearchDisplay from './searchDisplay.js'
+import {Background, Container, DisplayContainer} from './styledComponents/Containers.js'
 
 class Dashboard extends Component {
     state = {
@@ -70,35 +71,36 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
+            <Background>
                 Dashboard
-                <div>
+                <Container>
                     {this.state.user.userName ?
-                        <UserDisplay
-                            user={this.state.user}
-                            handleUserLogout={this.handleUserLogout}
-                            handleUserDelete={this.handleUserDelete}
-                            newUserName={this.state.newUserName}
-                            handleUserNameChange={this.handleUserNameChange}
-                            handleUserNameUpdate={this.handleUserNameUpdate}
-                        />
+                        <Container>
+                            <UserDisplay
+                                user={this.state.user}
+                                handleUserLogout={this.handleUserLogout}
+                                handleUserDelete={this.handleUserDelete}
+                                newUserName={this.state.newUserName}
+                                handleUserNameChange={this.handleUserNameChange}
+                                handleUserNameUpdate={this.handleUserNameUpdate}
+                            />
+                            <AccountDisplay
+                            userId={this.state.user._id}
+                            handleActiveAccount={this.handleActiveAccount}
+                            />
+                            <SearchDisplay
+                                userId={this.state.user._id}
+                                activeAccount={this.state.activeAccount} 
+                            />
+                        </Container>
                         :
                         <Login
                             logInQeury={this.logInQeury}
                             handleLogInChange={this.handleLogInChange}
                             handleLoginQuery={this.handleLoginQuery}
                         />}
-                    <br></br>
-                    <AccountDisplay
-                        userId={this.state.user._id}
-                        handleActiveAccount={this.handleActiveAccount}
-                    />
-                    <br></br>
-                    <SearchDisplay
-                        userId={this.state.user._id}
-                        activeAccount={this.state.activeAccount} />
-                </div>
-            </div>
+                </Container>
+            </Background>
         )
     }
 }
