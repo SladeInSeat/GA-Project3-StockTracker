@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchResults from './searchResults.js'
 import SearchForm from './searchForm.js'
+import DisplayTitle from './styledComponents/DisplayTitle.js'
 
 class SearchDisplay extends Component {
     state = {
@@ -16,9 +17,6 @@ class SearchDisplay extends Component {
         }
     }
 
-    // componentDidMount(){
-    //     this.setState({accountId : this.props.activeAccount})
-    // }
 
     stockSearch = () => {
         
@@ -26,14 +24,14 @@ class SearchDisplay extends Component {
     }
 
     getActiveAccountId = () => {
-        
+        //  why do i need this?
     }
 
     render(){
         return(
             <div>
                 <div>
-                    search Form<br></br>
+                    <DisplayTitle>Search Form</DisplayTitle><br></br>
                     <SearchForm stockSearch={this.stockSearch}/>
                 </div>
                 <div>

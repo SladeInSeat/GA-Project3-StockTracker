@@ -1,4 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
+import Button from './styledComponents/Button.js'
+
 
 export default function Login(props){
     return (
@@ -8,7 +11,7 @@ export default function Login(props){
                 value={props.loginQeury}
                 onChange={props.handleLogInChange}
             />
-            <button onClick={props.handleLoginQuery}>Log in or Create</button>
+            <Button onClick={props.handleLoginQuery}>Log in or Create</Button>
         </div>
     );
 }

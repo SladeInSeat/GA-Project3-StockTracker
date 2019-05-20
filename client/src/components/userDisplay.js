@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Button from './styledComponents/Button.js'
+import DisplayTitle from './styledComponents/DisplayTitle.js'
 
 class userDisplay extends Component{
 
@@ -9,19 +11,19 @@ class userDisplay extends Component{
         return(
             <div>
                 <br></br>
-                userDisplay<br></br>
+                <DisplayTitle>userDisplay</DisplayTitle><br></br>
                 User: {newUserProps.userName}
                 <br></br>
-                <button onClick={handleUserLogout}>Log Out</button>
+                <Button onClick={handleUserLogout}>Log Out</Button>
                 <br></br>
-                <button onClick={handleUserDelete}>Delete this user</button>
+                <Button onClick={handleUserDelete}>Delete this user</Button>
                 <br></br>
                 <input 
                     type="text" 
                     value={this.props.newUserName}
                     onChange={this.props.handleUserNameChange}
             />
-            <button onClick={this.props.handleUserNameUpdate}>Edit User Name</button>
+            <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
             </div>
         )
     }

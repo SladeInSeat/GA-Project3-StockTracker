@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from './styledComponents/Button.js'
+
 
 export default function Search(props) {
     return (
@@ -7,7 +9,7 @@ export default function Search(props) {
                 type="text"
                 value={props.searchCriteria}
             />
-            <button onClick={props.stockSearch}>Search</button>
+            <Button onClick={props.stockSearch}>Search</Button>
         </div>
     );
 }

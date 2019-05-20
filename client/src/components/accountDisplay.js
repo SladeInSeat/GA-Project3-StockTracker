@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import Button from './styledComponents/Button.js'
+import DisplayTitle from './styledComponents/DisplayTitle.js'
+
 
 class accountDisplay extends Component {
     state = {
@@ -91,7 +94,7 @@ class accountDisplay extends Component {
     render() {
         return (
             <div>
-                Account Display<br></br>
+                <DisplayTitle>Account Display</DisplayTitle>
                 {this.props.userId ?
                     <div>
                         Account Name: {this.state.account.accountName}<br></br>
@@ -101,9 +104,9 @@ class accountDisplay extends Component {
                             value={this.state.newAccountName}
                             onChange={this.handleAccountNameChange}
                         />
-                        <button onClick={this.handleAccountNameUpdate}>Edit Account Name</button>
-                        <button onClick={this.handleAccountCreate}>Create New Account</button>
-                        <button onClick={this.handleAccountDelete}>Delete this Account</button>
+                        <Button onClick={this.handleAccountNameUpdate}>Edit Account Name</Button>
+                        <Button onClick={this.handleAccountCreate}>Create New Account</Button>
+                        <Button onClick={this.handleAccountDelete}>Delete this Account</Button>
 
                     </div>
                     :

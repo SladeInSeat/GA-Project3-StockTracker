@@ -15,7 +15,7 @@ class Dashboard extends Component {
         logInQeury: "",
         activeAccount: ""
     };
-
+    
     handleLogInChange = event => {
         this.setState({ logInQeury: event.target.value })
     }
@@ -66,16 +66,7 @@ class Dashboard extends Component {
     handleActiveAccount = (accountId) => {
         this.setState({ activeAccount: accountId })
     }
-    // componentDidMount(){
-    //     let willBePropsFromLogin = ""
-    //     axios.get("/user",{params: {userName: `${willBePropsFromLogin}`}
-    //         }).then(res => {
-    //             console.log(res.data[0])
-    //             this.setState({user: res.data[0]}) 
-    //         }).catch((error) => {
-    //             console.log(error)
-    //         })
-    // ;}
+
 
     render() {
         return (
