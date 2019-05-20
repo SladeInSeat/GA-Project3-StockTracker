@@ -22,7 +22,7 @@ class userDisplay extends Component{
                     type="text" 
                     value={this.props.newUserName}
                     onChange={this.props.handleUserNameChange}
-            />
+                />
             <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
             </div>
         )
