@@ -4,9 +4,7 @@ import Login from './Login.js'
 import UserDisplay from "./userDisplay.js"
 import AccountDisplay from "./accountDisplay.js"
 import SearchDisplay from './searchDisplay.js';
-import {Background} from './styledComponents/Containers'
-import {DisplayContainer} from './styledComponents/Containers'
-import DisplayTitle from './styledComponents/DisplayTitle.js'
+import Background from './styledComponents/Containers'
 
 class Dashboard extends Component {
     state = {
@@ -73,40 +71,36 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <Background>
+            <div>
+                <Background>Dashboard
                 <div>
-                    <DisplayTitle>Dashboard</DisplayTitle>
                     {this.state.user.userName ?
-                        <div>
-                            <UserDisplay
-                                user={this.state.user}
-                                handleUserLogout={this.handleUserLogout}
-                                handleUserDelete={this.handleUserDelete}
-                                newUserName={this.state.newUserName}
-                                handleUserNameChange={this.handleUserNameChange}
-                                handleUserNameUpdate={this.handleUserNameUpdate}
-                            />
-                            <AccountDisplay
-                                userId={this.state.user._id}
-                                handleActiveAccount={this.handleActiveAccount}
-                            />
-                            <br></br>
-                            <SearchDisplay
-                                userId={this.state.user._id}
-                                activeAccount={this.state.activeAccount}
-                            />
-                        </div>
+                        <UserDisplay
+                            user={this.state.user}
+                            handleUserLogout={this.handleUserLogout}
+                            handleUserDelete={this.handleUserDelete}
+                            newUserName={this.state.newUserName}
+                            handleUserNameChange={this.handleUserNameChange}
+                            handleUserNameUpdate={this.handleUserNameUpdate}
+                        />
                         :
-                        <DisplayContainer>
-                            <Login
-                                logInQeury={this.logInQeury}
-                                handleLogInChange={this.handleLogInChange}
-                                handleLoginQuery={this.handleLoginQuery}
-                            />
-                        </DisplayContainer>
-                    }
+                        <Login
+                            logInQeury={this.logInQeury}
+                            handleLogInChange={this.handleLogInChange}
+                            handleLoginQuery={this.handleLoginQuery}
+                        />}
+                    <br></br>
+                    <AccountDisplay
+                        userId={this.state.user._id}
+                        handleActiveAccount={this.handleActiveAccount}
+                    />
+                    <br></br>
+                    <SearchDisplay
+                        userId={this.state.user._id}
+                        activeAccount={this.state.activeAccount} />
                 </div>
-            </Background>
+                </Background>
+            </div>
         )
     }
 }
