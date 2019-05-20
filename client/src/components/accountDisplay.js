@@ -17,7 +17,8 @@ class accountDisplay extends Component {
                 params: { parentUser: this.props.userId }
             }).then((res) => {
                 if (res.data[0]) {
-                    this.setState({ account: res.data[0] })
+                    this.setState({ account: res.data[0] });
+                    this.props.handleActiveAccount(res.data[0]._id);
                 } else {
                     this.setState({
                         account: {
@@ -91,10 +92,10 @@ class accountDisplay extends Component {
         return (
             <div>
                 Account Display<br></br>
-                Account Name: {this.state.account.accountName}<br></br>
-                Parent User: {this.state.account.parentUser}<br></br>
-                {this.state.account.parentUser ?
+                {this.props.userId ?
                     <div>
+                        Account Name: {this.state.account.accountName}<br></br>
+                        Parent User: {this.state.account.parentUser}<br></br>
                         <input
                             type="text"
                             value={this.state.newAccountName}
@@ -107,7 +108,7 @@ class accountDisplay extends Component {
                     </div>
                     :
                     <div>
-                        nothing in state.account.parentUser
+                        props.userId is cleared so show no accounts
                     </div>
                 }
             </div>

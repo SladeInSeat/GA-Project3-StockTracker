@@ -6,7 +6,8 @@ export default function SearchResults(props) {
     const viewStockList = stockList.map((stockObj, index) => {
         return (
             <li key={index}>
-                 {stockObj.name}
+                 StockTicker: {stockObj.stockTicker}<br></br>
+                 StockParent: {stockObj.parentAccount}
             </li>
         )
     })

@@ -12,7 +12,8 @@ class Dashboard extends Component {
             _id: ""
         },
         newUserName: "",
-        logInQeury: ""
+        logInQeury: "",
+        activeAccount: ""
     };
 
     handleLogInChange = event => {
@@ -33,7 +34,8 @@ class Dashboard extends Component {
                 _id: ""
             },
             newUserName: "",
-            logInQeury: ""
+            logInQeury: "",
+            activeAccount: ""
         })
     }
 
@@ -61,6 +63,9 @@ class Dashboard extends Component {
         this.setState({ user: clonedUser })
     }
 
+    handleActiveAccount = (accountId) => {
+        this.setState({ activeAccount: accountId })
+    }
     // componentDidMount(){
     //     let willBePropsFromLogin = ""
     //     axios.get("/user",{params: {userName: `${willBePropsFromLogin}`}
@@ -93,12 +98,14 @@ class Dashboard extends Component {
                             handleLoginQuery={this.handleLoginQuery}
                         />}
                     <br></br>
-                    <AccountDisplay 
+                    <AccountDisplay
                         userId={this.state.user._id}
+                        handleActiveAccount={this.handleActiveAccount}
                     />
                     <br></br>
-                    <SearchDisplay 
-                        userId={this.state.user._id} />
+                    <SearchDisplay
+                        userId={this.state.user._id}
+                        activeAccount={this.state.activeAccount} />
                 </div>
             </div>
         )

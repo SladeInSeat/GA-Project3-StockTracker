@@ -9,13 +9,24 @@ class SearchDisplay extends Component {
         searchCriteria: "I am search criteria"
     };
 
-    componentDidMount(){
-        this.setState({accountId : this.props.userId})
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.activeAccount !== this.props.activeAccount){
+            this.setState({accountId : this.props.activeAccount})
+        }
     }
+
+    // componentDidMount(){
+    //     this.setState({accountId : this.props.activeAccount})
+    // }
 
     stockSearch = () => {
         
         this.setState({searchCriteria: "stockSearch worked, beeiotch"})
+    }
+
+    getActiveAccountId = () => {
+        
     }
 
     render(){
