@@ -7,7 +7,8 @@ export default function SearchResults(props) {
         return (
             <li key={index}>
                  StockTicker: {stockObj.stockTicker}<br></br>
-                 StockParent: {stockObj.parentAccount}
+                 {/* StockParent: {stockObj.parentAccount} */}
+                 <button>Add Stock</button>
             </li>
         )
     })

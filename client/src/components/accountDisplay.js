@@ -11,10 +11,11 @@ class accountDisplay extends Component {
             accountName: "",
             parentUser: ""
         },
-        newAccountName: ""
+        newAccountName: "",
+        stockList: []
     }
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get("/account", {
             params: { parentUser: this.props.userId }
         }).then((res) => {
@@ -28,7 +29,8 @@ class accountDisplay extends Component {
                         accountName: "No Accounts",
                         parentUser: this.props.userId
                     },
-                    newAccountName: ""
+                    newAccountName: "",
+                    stockList: []
                 })
             }
         }).catch((error) => {
@@ -51,7 +53,8 @@ class accountDisplay extends Component {
                             accountName: "No Accounts",
                             parentUser: this.props.userId
                         },
-                        newAccountName: ""
+                        newAccountName: "",
+                        stockList: []
                     })
                 }
             }).catch((error) => {
@@ -106,7 +109,7 @@ class accountDisplay extends Component {
                     newAccountName: ""
                 })
             })
-            .catch((error) =>{
+            .catch((error) => {
                 console.log(error)
             })
     }
