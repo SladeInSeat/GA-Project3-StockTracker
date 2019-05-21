@@ -10,18 +10,20 @@ class userDisplay extends Component{
         let handleUserDelete = this.props.handleUserDelete
         return(
             <div>
-                <DisplayTitle>userDisplay</DisplayTitle>
-                User: {newUserProps.userName}
-                <br></br>
-                <Button onClick={handleUserLogout}>Log Out</Button>
-                <Button onClick={handleUserDelete}>Delete this user</Button>
-                <br></br>
-                <input 
-                    type="text" 
-                    value={this.props.newUserName}
-                    onChange={this.props.handleUserNameChange}
-            />
-            <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
+            <DisplayTitle>User: {newUserProps.userName}</DisplayTitle>
+                <div> 
+                    <br></br>
+                    <input 
+                        type="text" 
+                        value={this.props.newUserName}
+                        onChange={this.props.handleUserNameChange}
+                    />
+                    <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
+                    <br></br>
+                    <Button onClick={handleUserLogout}>Log Out</Button>
+                    <br></br>
+                    <Button onClick={handleUserDelete}>Delete this user</Button>
+                </div>
             </div>
         )
     }

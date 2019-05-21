@@ -4,7 +4,9 @@ import Login from './Login.js'
 import UserDisplay from "./userDisplay.js"
 import AccountDisplay from "./accountDisplay.js"
 import SearchDisplay from './searchDisplay.js'
-import {Background, Container, DisplayContainer} from './styledComponents/Containers.js'
+import AppTitle from './styledComponents/AppTitle.js'
+import { Background, Column, DisplayContainer,
+     UserAccContainer, SearchContainer  } from './styledComponents/Containers.js'
 
 class Dashboard extends Component {
     state = {
@@ -16,7 +18,7 @@ class Dashboard extends Component {
         logInQeury: "",
         activeAccount: ""
     };
-    
+
     handleLogInChange = event => {
         this.setState({ logInQeury: event.target.value })
     }
@@ -72,34 +74,42 @@ class Dashboard extends Component {
     render() {
         return (
             <Background>
-                Dashboard
-                <Container>
+                <AppTitle>Stock Tracker App</AppTitle>
                     {this.state.user.userName ?
-                        <Container>
-                            <UserDisplay
-                                user={this.state.user}
-                                handleUserLogout={this.handleUserLogout}
-                                handleUserDelete={this.handleUserDelete}
-                                newUserName={this.state.newUserName}
-                                handleUserNameChange={this.handleUserNameChange}
-                                handleUserNameUpdate={this.handleUserNameUpdate}
-                            />
-                            <AccountDisplay
-                            userId={this.state.user._id}
-                            handleActiveAccount={this.handleActiveAccount}
-                            />
-                            <SearchDisplay
-                                userId={this.state.user._id}
-                                activeAccount={this.state.activeAccount} 
-                            />
-                        </Container>
+                        <Column>
+                            <UserAccContainer>
+                                <DisplayContainer>
+                                    <UserDisplay
+                                        user={this.state.user}
+                                        handleUserLogout={this.handleUserLogout}
+                                        handleUserDelete={this.handleUserDelete}
+                                        newUserName={this.state.newUserName}
+                                        handleUserNameChange={this.handleUserNameChange}
+                                        handleUserNameUpdate={this.handleUserNameUpdate}
+                                    />
+                                </DisplayContainer>
+                                <DisplayContainer>
+                                    <AccountDisplay
+                                        userId={this.state.user._id}
+                                        handleActiveAccount={this.handleActiveAccount}
+                                    />
+                                </DisplayContainer>
+                            </UserAccContainer>
+                            <SearchContainer>
+                                <DisplayContainer>
+                                    <SearchDisplay
+                                        userId={this.state.user._id}
+                                        activeAccount={this.state.activeAccount}
+                                    />
+                                </DisplayContainer>
+                            </SearchContainer>
+                        </Column>
                         :
                         <Login
                             logInQeury={this.logInQeury}
                             handleLogInChange={this.handleLogInChange}
                             handleLoginQuery={this.handleLoginQuery}
                         />}
-                </Container>
             </Background>
         )
     }

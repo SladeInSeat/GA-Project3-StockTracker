@@ -116,19 +116,20 @@ class accountDisplay extends Component {
     render() {
         return (
             <div>
-                <DisplayTitle>Account Display</DisplayTitle>
+                <DisplayTitle>Account: {this.state.account.accountName}</DisplayTitle>
                 {this.props.userId ?
                     <div>
-                        Account Name: {this.state.account.accountName}<br></br>
+                        <br></br>
                         <input
                             type="text"
                             value={this.state.newAccountName}
                             onChange={this.handleAccountNameChange}
                         />
-                        <Button onClick={this.handleAccountNameUpdate}>Edit Account Name</Button>
-                        <Button onClick={this.handleAccountCreate}>Create New Account</Button>
+                        <Button onClick={this.handleAccountNameUpdate}>Edit Account</Button>
                         <br></br>
-                        <Button onClick={this.handleAccountDelete}>Delete this Account</Button>
+                        <Button onClick={this.handleAccountCreate}>Create Account</Button>
+                        <br></br>
+                        <Button onClick={this.handleAccountDelete}>Delete Account</Button>
                     </div>
                     :
                     <div>

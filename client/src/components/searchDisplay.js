@@ -3,6 +3,8 @@ import SearchResults from './searchResults.js'
 import SearchForm from './searchForm.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
 
+
+//  search results #512CE8
 class SearchDisplay extends Component {
     state = {
         accountId: "",
