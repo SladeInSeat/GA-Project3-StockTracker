@@ -5,10 +5,10 @@ export default function SearchResults(props) {
         
     const viewStockList = stockList.map((stockObj, index) => {
         return (
-            <li key={index}>
+            <li key={stockObj.parentAccount}>
                  StockTicker: {stockObj.stockTicker}<br></br>
                  {/* StockParent: {stockObj.parentAccount} */}
-                 <button>Add Stock</button>
+                 <button>Add/Remove Stock</button>
             </li>
         )
     })

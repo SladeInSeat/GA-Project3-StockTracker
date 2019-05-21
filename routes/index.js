@@ -44,12 +44,15 @@ router.delete("/accounts", accountController.deleteAccount)
 router.get("/stocks", stockController.findAllStocks)
 
 //  find stock by ticker
-router.get("/stock", stockController.findStockByTicker)
+router.get("/stocks/ticker", stockController.findStockByTicker)
+
+//  find stock by accountParent Id
+router.get("/stocks/parentAccount", stockController.findStockByParent)
 
 // add id to accountParent
-router.patch("stock/setParentAccount", stockController.setStockParentAccount)
+router.patch("/stocks/setParentAccount", stockController.setStockParentAccount)
 
 // remove id from accountParent
-router.patch("stock/removeParentAccount", stockController.removeStockParentAccount)
+router.patch("/stocks/removeParentAccount", stockController.removeStockParentAccount)
 
 module.exports = router 

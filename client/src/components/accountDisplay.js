@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import SearchResults from './searchResults'
 import Button from './styledComponents/Button.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
 
@@ -12,7 +13,9 @@ class accountDisplay extends Component {
             parentUser: ""
         },
         newAccountName: "",
-        stockList: []
+        stockList: [{stockTicker: "MSFT",parentAccount: "idMSFT"},
+                    {stockTicker: "UL", parentAccount: "idUL"},
+                    {stockTicker: "BKBEF", parentAccount: "idBKBEF"}]
     }
 
     componentDidMount() {
@@ -122,6 +125,8 @@ class accountDisplay extends Component {
                 <DisplayTitle>Account: {this.state.account.accountName}</DisplayTitle>
                 {this.props.userId ?
                     <div>
+                        <SearchResults
+                            stockList={this.state.stockList}/>
                         <br></br>
                         <input
                             type="text"
