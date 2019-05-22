@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import SearchResults from './searchResults'
 import Button from './styledComponents/Button.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
 
@@ -33,8 +34,12 @@ class accountDisplay extends Component {
                     stockList: []
                 })
             }
-        }).catch((error) => {
-            console.log(error)
+        }).then(() => {
+            axios.get("/stocks/parentAccount", {params :{parentAccount: this.state.account._id}}
+            ).then((newStockList) => {
+                console.log(this.state.account._id, newStockList.data)
+                this.setState({stockList: newStockList.data})
+            })
         })
     };
 
@@ -114,6 +119,15 @@ class accountDisplay extends Component {
             })
     }
 
+    // handleStockAction = () => {
+    //     axios.patch("/stocks/removeParentAccount", {stockId: stockObj._id})
+    //         .then((modifiedStock => {
+    //             console.log(modifiedStock)
+    //         }))
+    // }
+
+
+
 
 
     render() {
@@ -122,6 +136,11 @@ class accountDisplay extends Component {
                 <DisplayTitle>Account: {this.state.account.accountName}</DisplayTitle>
                 {this.props.userId ?
                     <div>
+                        <SearchResults
+                            stockList={this.state.stockList}
+                            parentAccount={this.state.account._id}
+                            handleStockAction={this.handleStockAction}
+                        />
                         <br></br>
                         <input
                             type="text"

@@ -22,7 +22,7 @@ export const Column = styled.div`
     align-items: center;
     height: 90vh;
     width: 90vw;
-    flex-basis: 0;
+    flex-basis: auto;
     flex-grow: 1;
 `;
 
@@ -34,7 +34,7 @@ export const UserAccContainer = styled.div`
     align-items: stretch;
     height: 40vh;
     width: 85vw;
-    flex-basis: 0;
+    flex-basis: auto;
     flex-grow: 1;
     padding: 5px;
 `;
