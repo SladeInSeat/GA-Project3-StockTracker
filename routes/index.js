@@ -47,7 +47,7 @@ router.get("/stocks", stockController.findAllStocks)
 router.get("/stocks/ticker", stockController.findStockByTicker)
 
 //  find stock by accountParent Id
-router.get("/stocks/parentAccount", stockController.findStockByParent)
+router.get("/stocks/parentAccount/", stockController.findStockByParent)
 
 // add id to accountParent
 router.patch("/stocks/setParentAccount", stockController.setStockParentAccount)

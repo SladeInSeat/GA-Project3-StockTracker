@@ -11,7 +11,7 @@ const stockController = {
     },
 
     findStockByParent: function (req, res) {
-        Stock.find({ parentAccount: req.body.parentAccount })
+        Stock.find({ parentAccount: req.query.parentAccount })
             .then((foundStock) => {
                 res.json(foundStock)
             })

@@ -13,9 +13,7 @@ class accountDisplay extends Component {
             parentUser: ""
         },
         newAccountName: "",
-        stockList: [{stockTicker: "MSFT",parentAccount: "idMSFT"},
-                    {stockTicker: "UL", parentAccount: "idUL"},
-                    {stockTicker: "BKBEF", parentAccount: "idBKBEF"}]
+        stockList: []
     }
 
     componentDidMount() {
@@ -36,8 +34,12 @@ class accountDisplay extends Component {
                     stockList: []
                 })
             }
-        }).catch((error) => {
-            console.log(error)
+        }).then(() => {
+            axios.get("/stocks/parentAccount", {params :{parentAccount: this.state.account._id}}
+            ).then((newStockList) => {
+                console.log(this.state.account._id, newStockList.data)
+                this.setState({stockList: newStockList.data})
+            })
         })
     };
 
@@ -117,6 +119,15 @@ class accountDisplay extends Component {
             })
     }
 
+    // handleStockAction = () => {
+    //     axios.patch("/stocks/removeParentAccount", {stockId: stockObj._id})
+    //         .then((modifiedStock => {
+    //             console.log(modifiedStock)
+    //         }))
+    // }
+
+
+
 
 
     render() {
@@ -126,7 +137,10 @@ class accountDisplay extends Component {
                 {this.props.userId ?
                     <div>
                         <SearchResults
-                            stockList={this.state.stockList}/>
+                            stockList={this.state.stockList}
+                            parentAccount={this.state.account._id}
+                            handleStockAction={this.handleStockAction}
+                        />
                         <br></br>
                         <input
                             type="text"
