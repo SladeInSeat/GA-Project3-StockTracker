@@ -1,26 +1,38 @@
 import React, { Component } from 'react'
-import SearchResults from './searchResults.js'
+import SearchResults2 from './searchResultsAdd'
 import SearchForm from './searchForm.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
+import axios from 'axios'
 
 
 //  search results #512CE8
 class SearchDisplay extends Component {
     state = {
         accountId: "",
-        stockList: [{stockTicker: "MSFT",parentAccount: "idMSFT"},
-                    {stockTicker: "UL", parentAccount: "idUL"},
-                    {stockTicker: "BKBEF", parentAccount: "idBKBEF"}],
+        stockList: [],
         searchCriteria: "I am search criteria"
     };
 
+
+    componentDidMount() {
+        this.setState({accountId : this.props.activeAccount})
+    }
 
     componentDidUpdate(prevProps) {
         if (prevProps.activeAccount !== this.props.activeAccount){
             this.setState({accountId : this.props.activeAccount})
         }
     }
+    handleSearchCriteriaChange = event => {
+        this.setState({ searchCriteria: event.target.value })
+    }
 
+    handleLSearchCriteriaQuery = () => {
+        axios.get("/stocks/ticker", { params: {stockTicker: this.state.searchCriteria} }
+        ).then((res) => {
+            this.setState({ stockList: res.data })
+        })
+    }
 
     stockSearch = () => {
         
@@ -31,16 +43,26 @@ class SearchDisplay extends Component {
         //  why do i need this?
     }
 
+    addStockList = (stockObj) => {
+        axios.patch("/stocks/setParentAccount", { stockId: stockObj._id, parentAccount: this.state.accountId })
+            .then((editedStock) => {
+                console.log(editedStock.data)
+            })
+    }
+
     render(){
         return(
             <div>
                 <div>
                     <DisplayTitle>Search Form</DisplayTitle>
-                    <SearchForm stockSearch={this.stockSearch}/>
+                    <SearchForm handleSearchCriteriaChange={this.handleSearchCriteriaChange}
+                                handleLSearchCriteriaQuery ={this.handleLSearchCriteriaQuery}
+                    />
                 </div>
                 <div>
-                    <SearchResults accountId={this.state.accountId}
-                                   stockList= {this.state.stockList}/>
+                    <SearchResults2 accountId={this.state.accountId}
+                                   stockList= {this.state.stockList}
+                                   addStockList={this.addStockList}/>
                 </div>
 
             </div>

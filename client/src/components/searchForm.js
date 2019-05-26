@@ -8,8 +8,9 @@ export default function Search(props) {
             <input  
                 type="text"
                 value={props.searchCriteria}
+                onChange={props.handleSearchCriteriaChange}
             />
-            <Button onClick={props.stockSearch}>Search</Button>
+            <Button onClick={props.handleLSearchCriteriaQuery}>Search</Button>
         </div>
     );
 }
