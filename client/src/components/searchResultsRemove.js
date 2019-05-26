@@ -16,7 +16,6 @@ export default function SearchResults(props) {
     
     return (
         <div>
-            Search Results
             <ol>
                 {viewStockList}
             </ol>

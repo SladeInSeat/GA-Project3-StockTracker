@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from './styledComponents/Button.js'
-import DisplayTitle from './styledComponents/DisplayTitle.js'
+import {NavbarLi} from './styledComponents/Containers.js'
 
 class userDisplay extends Component{
 
@@ -9,22 +9,17 @@ class userDisplay extends Component{
         let handleUserLogout = this.props.handleUserLogout
         let handleUserDelete = this.props.handleUserDelete
         return(
-            <div>
-            <DisplayTitle>User: {newUserProps.userName}</DisplayTitle>
-                <div> 
-                    <br></br>
-                    <input 
-                        type="text" 
-                        value={this.props.newUserName}
-                        onChange={this.props.handleUserNameChange}
-                    />
-                    <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
-                    <br></br>
-                    <Button onClick={handleUserLogout}>Log Out</Button>
-                    <br></br>
-                    <Button onClick={handleUserDelete}>Delete this user</Button>
-                </div>
-            </div>
+            <NavbarLi>
+                <h4>Welcome {newUserProps.userName}</h4>
+                        <Button onClick={handleUserLogout}>Log Out</Button>
+                        <input
+                            type="text" 
+                            value={this.props.newUserName}
+                            onChange={this.props.handleUserNameChange}
+                        />
+                        <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
+                        <Button onClick={handleUserDelete}>Delete this user</Button>
+            </NavbarLi>
         )
     }
 };

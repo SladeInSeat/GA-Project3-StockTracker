@@ -10,7 +10,7 @@ class SearchDisplay extends Component {
     state = {
         accountId: "",
         stockList: [],
-        searchCriteria: "I am search criteria"
+        searchCriteria: "",
     };
 
 
@@ -34,27 +34,17 @@ class SearchDisplay extends Component {
         })
     }
 
-    stockSearch = () => {
-        
-        this.setState({searchCriteria: "stockSearch worked, beeiotch"})
-    }
-
-    getActiveAccountId = () => {
-        //  why do i need this?
-    }
-
     addStockList = (stockObj) => {
         axios.patch("/stocks/setParentAccount", { stockId: stockObj._id, parentAccount: this.state.accountId })
             .then((editedStock) => {
                 console.log(editedStock.data)
-            })
+            }).then(this.props.handleStockAdded)
     }
 
     render(){
         return(
             <div>
                 <div>
-                    <DisplayTitle>Search Form</DisplayTitle>
                     <SearchForm handleSearchCriteriaChange={this.handleSearchCriteriaChange}
                                 handleLSearchCriteriaQuery ={this.handleLSearchCriteriaQuery}
                     />
