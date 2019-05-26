@@ -18,13 +18,13 @@ const stockController = {
     },
 
     findStockByTicker: function (req, res) {
-        Stock.find({ stockTicker: req.body.stockTicker })
+        Stock.find({ stockTicker: req.query.stockTicker })
             .then((stock) => {
                 res.json(stock)
             })
     },
 
-    setStockParentAccount: function (req, res) { // runs find twice, needs fixing
+    setStockParentAccount: function (req, res) { 
         Stock.findByIdAndUpdate(req.body.stockId,
             { $set: {parentAccount: mongoose.Types.ObjectId(req.body.parentAccount)}},
             {new: true})
@@ -34,7 +34,6 @@ const stockController = {
     },
 
     removeStockParentAccount: function (req, res) {
-        console.log("from removeStock controller: " + req.query.stockId)
         Stock.findByIdAndUpdate(req.body.stockId,
             { $set: { parentAccount: null } },
             { new: true })

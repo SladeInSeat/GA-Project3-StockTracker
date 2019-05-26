@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import SearchResults from './searchResults'
+import SearchResults from './searchResultsRemove'
 import Button from './styledComponents/Button.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
 
