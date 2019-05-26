@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './styledComponents/Button.js'
+import {SearchResultsContainer} from './styledComponents/Containers.js'
 
 export default function SearchResults(props) {
 
@@ -15,11 +16,11 @@ export default function SearchResults(props) {
     })
     
     return (
-        <div>
+        <SearchResultsContainer>
             Search Results
             <ol>
                 {viewStockList}
             </ol>
-    </div>
+        </SearchResultsContainer>
     );
 }

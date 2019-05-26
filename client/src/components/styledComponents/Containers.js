@@ -12,6 +12,7 @@ export const Background = styled.div`
     min-width: 100vw;
     min-height: 100vh;
     z-index: -999;
+    overflow: auto;
 `;
 
 export const Column = styled.div`
@@ -24,6 +25,8 @@ export const Column = styled.div`
     width: 90vw;
     flex-basis: auto;
     flex-grow: 1;
+    overflow: auto;
+    border: 3px green solid;
 `;
 
 export const UserAccContainer = styled.div`
@@ -37,29 +40,61 @@ export const UserAccContainer = styled.div`
     flex-basis: auto;
     flex-grow: 1;
     padding: 5px;
+    border: 2px blue solid;
 `;
 
 export const DisplayContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: opacity(0.1);
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 5px;
     width: 40vw;
     flex-grow: 1;
+    flex-basis: auto;
 `;
 
 export const SearchContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: opacity(0.1);
     justify-content: center;
     align-items: flex-start;
     padding: 5px;
     width: 80vw;
-    flex-grow: 3;
+    flex-grow: 1;
 `;
+
+export const SearchResultsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 2px;
+    flex-basis: 1;
+    flex-grow: 1;
+    overflow: auto;
+`;
+
+export const Navbar = styled.nav`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 0 1em 0;
+    padding: 0;
+    list-style: none;
+    height: 80px;
+    align-items: center;
+`;
+
+export const NavbarLi = styled.li`
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+`;
+
 
 
 export default {
@@ -67,5 +102,8 @@ export default {
     Column,
     DisplayContainer,
     SearchContainer,
-    UserAccContainer
+    UserAccContainer,
+    SearchResultsContainer,
+    Navbar,
+    NavbarLi
 }

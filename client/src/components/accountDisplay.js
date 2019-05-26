@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchResults from './searchResultsRemove'
 import Button from './styledComponents/Button.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
+import {SearchResultsContainer} from './styledComponents/Containers.js'
 
 
 class accountDisplay extends Component {
@@ -20,7 +21,6 @@ class accountDisplay extends Component {
         axios.get("/account", {
             params: { parentUser: this.props.userId }
         }).then((res) => {
-            console.log(res.data[0])
             if (res.data[0]) {
                 this.setState({ account: res.data[0] });
                 this.props.handleActiveAccount(res.data[0]._id);
@@ -44,7 +44,7 @@ class accountDisplay extends Component {
     };
 
     componentDidUpdate(prevProps) {
-        if (prevProps.userId !== this.props.userId) {
+        if (prevProps.userId !== this.props.userId || prevProps.stockAddedToggle !== this.props.stockAddedToggle) {
             axios.get("/account", {
                 params: { parentUser: this.props.userId }
             }).then((res) => {
@@ -143,9 +143,9 @@ class accountDisplay extends Component {
     render() {
         return (
             <div>
-                <DisplayTitle>Account: {this.state.account.accountName}</DisplayTitle>
+                <DisplayTitle>{this.state.account.accountName}</DisplayTitle>
                 {this.props.userId ?
-                    <div>
+                    <SearchResultsContainer>
                         <SearchResults
                             stockList={this.state.stockList}
                             parentAccount={this.state.account._id}
@@ -162,7 +162,7 @@ class accountDisplay extends Component {
                         <Button onClick={this.handleAccountCreate}>Create Account</Button>
                         <br></br>
                         <Button onClick={this.handleAccountDelete}>Delete Account</Button>
-                    </div>
+                    </SearchResultsContainer>
                     :
                     <div>
                     </div>

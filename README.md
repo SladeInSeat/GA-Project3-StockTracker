@@ -3,8 +3,10 @@
 
   Keep an eye on your investments! Add stocks to a watchlist
   Try it out! [Stock Tracker](https://salty-depths-52780.herokuapp.com/)
+
   Currently, there are only 4 stocks searchable by thier ticker: AAPL, UL, BKBEF, and RIO.
-  Feel free to create a user, an account, search for these stocks, add them to your account, and remove them. 
+  
+  The existing users Slade and Sam both have accounts and stocks assigned to them, but feel free to create your own users and accounts.
 
 ## Technologies used:
   MERN stack (MongoDb, Express, React, Node), styled-components/css, git, git-hub Projects, Heroku  
@@ -37,8 +39,13 @@
 -  Minimum Viable Prodect reached. Work on strech goals as time permits.  
 [Stock Tracker](https://salty-depths-52780.herokuapp.com/)  
 
+## Lessons Learned
+  React is pretty awesome. Next project, I will be more mindfull of component structure
+so that passing information will be more streamlined regarding paths and reusable functions.
+  Although I did not take full advantage, I can see how Styled-Components are very handy for creating reusable styles and themes.   However, my experience with Bootstrap last project was much better in terms of ease of use and final deliverable.
 
 ## Stretch Goals Remaining:
 * ~Implement search function~
 * create many-to-many relationships between stock/account and account/user
 * implement a 3rd party api to populate search returns
+* (much) Better styling, probably refactor into bootstrap

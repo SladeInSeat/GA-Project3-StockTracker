@@ -6,7 +6,7 @@ export const DisplayTitle = styled.div`
     background: opacity(0.1);
     font-size: 18px;
     color: black;
-    width: 15vw;
+    width: 30vw;
     justify-content: center;
 `;
 
