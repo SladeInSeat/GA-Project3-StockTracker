@@ -46,7 +46,7 @@ class SearchDisplay extends Component {
     addStockList = (stockObj) => {
         axios.patch("/stocks/setParentAccount", { stockId: stockObj._id, parentAccount: this.state.accountId })
             .then((editedStock) => {
-                console.log(editedStock)
+                console.log(editedStock.data)
             })
     }
 
