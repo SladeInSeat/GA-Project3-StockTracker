@@ -37,6 +37,6 @@
 
 
 ## Stretch Goals Remaining:
-* Implement search function
+* ~Implement search function~
 * create many-to-many relationships between stock/account and account/user
 * implement a 3rd party api to populate search returns
