@@ -20,6 +20,7 @@ class accountDisplay extends Component {
         axios.get("/account", {
             params: { parentUser: this.props.userId }
         }).then((res) => {
+            console.log(res.data[0])
             if (res.data[0]) {
                 this.setState({ account: res.data[0] });
                 this.props.handleActiveAccount(res.data[0]._id);
@@ -35,10 +36,9 @@ class accountDisplay extends Component {
                 })
             }
         }).then(() => {
-            axios.get("/stocks/parentAccount", {params :{parentAccount: this.state.account._id}}
+            axios.get("/stocks/parentAccount", {params: { parentAccount: this.state.account._id }}
             ).then((newStockList) => {
-                console.log(this.state.account._id, newStockList.data)
-                this.setState({stockList: newStockList.data})
+                this.setState({ stockList: newStockList.data })
             })
         })
     };
@@ -48,6 +48,7 @@ class accountDisplay extends Component {
             axios.get("/account", {
                 params: { parentUser: this.props.userId }
             }).then((res) => {
+                console.log(res.data)
                 if (res.data[0]) {
                     this.setState({ account: res.data[0] });
                     this.props.handleActiveAccount(res.data[0]._id);
@@ -62,6 +63,11 @@ class accountDisplay extends Component {
                         stockList: []
                     })
                 }
+            }).then(() => {
+                axios.get("/stocks/parentAccount", { params: { parentAccount: this.state.account._id } }
+                ).then((newStockList) => {
+                    this.setState({ stockList: newStockList.data })
+                })
             }).catch((error) => {
                 console.log(error)
             })
@@ -73,7 +79,7 @@ class accountDisplay extends Component {
     }
 
     handleAccountNameUpdate = () => {
-        axios.patch('accounts', {
+        axios.patch('/accounts', {
             accountId: this.state.account._id,
             accountName: this.state.newAccountName
         })
@@ -86,7 +92,7 @@ class accountDisplay extends Component {
     }
 
     handleAccountCreate = () => {
-        axios.post('accounts', {
+        axios.post('/accounts', {
             accountName: this.state.newAccountName,
             parentUser: this.state.account.parentUser
         })
@@ -119,12 +125,16 @@ class accountDisplay extends Component {
             })
     }
 
-    // handleStockAction = () => {
-    //     axios.patch("/stocks/removeParentAccount", {stockId: stockObj._id})
-    //         .then((modifiedStock => {
-    //             console.log(modifiedStock)
-    //         }))
-    // }
+    removeStockList = (stockObj) => {
+        axios.patch("/stocks/removeParentAccount", { stockId: stockObj._id })
+            .then(() => {
+                axios.get("/stocks/parentAccount", { params: { parentAccount: this.state.account._id } }
+                ).then((newStockList) => {
+                    this.setState({ stockList: newStockList.data })
+                })
+            })
+
+    }
 
 
 
@@ -139,7 +149,7 @@ class accountDisplay extends Component {
                         <SearchResults
                             stockList={this.state.stockList}
                             parentAccount={this.state.account._id}
-                            handleStockAction={this.handleStockAction}
+                            removeStockList={this.removeStockList}
                         />
                         <br></br>
                         <input

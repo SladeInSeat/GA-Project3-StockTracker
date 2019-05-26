@@ -8,9 +8,7 @@ import DisplayTitle from './styledComponents/DisplayTitle.js'
 class SearchDisplay extends Component {
     state = {
         accountId: "",
-        stockList: [{stockTicker: "MSFT",parentAccount: "idMSFT"},
-                    {stockTicker: "UL", parentAccount: "idUL"},
-                    {stockTicker: "BKBEF", parentAccount: "idBKBEF"}],
+        stockList: [],
         searchCriteria: "I am search criteria"
     };
 

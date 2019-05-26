@@ -34,6 +34,7 @@ const stockController = {
     },
 
     removeStockParentAccount: function (req, res) {
+        console.log("from removeStock controller: " + req.query.stockId)
         Stock.findByIdAndUpdate(req.body.stockId,
             { $set: { parentAccount: null } },
             { new: true })
