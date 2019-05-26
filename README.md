@@ -3,6 +3,8 @@
 
   Keep an eye on your investments! Add stocks to a watchlist
   Try it out! [Stock Tracker](https://salty-depths-52780.herokuapp.com/)
+  Currently, there are only 4 stocks searchable by thier ticker: AAPL, UL, BKBEF, and RIO.
+  Feel free to create a user, an account, search for these stocks, add them to your account, and remove them. 
 
 ## Technologies used:
   MERN stack (MongoDb, Express, React, Node), styled-components/css, git, git-hub Projects, Heroku  
