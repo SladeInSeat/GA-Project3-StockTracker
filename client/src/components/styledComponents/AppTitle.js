@@ -9,8 +9,7 @@ export const AppTitle=styled.div`
     background: #512CE8;
     font-size: 40px;
     color: black;
-    font-weight: 500;
-    border: 2px black solid;
+    font-weight: 800;
     flex-grow: 1;
     flex-basis: 1;
 

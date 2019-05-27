@@ -14,7 +14,7 @@ class userDisplay extends Component{
         return(
             <UserAccContainer>
                 <NavbarContainer>
-                    <AppTitle>Welcome, {newUserProps.userName}!</AppTitle>
+                    <UserTitle>Welcome, {newUserProps.userName}!</UserTitle>
                 </NavbarContainer>
                 <NavbarContainer>
                         <DelButton onClick={handleUserDelete}>Delete this user</DelButton>

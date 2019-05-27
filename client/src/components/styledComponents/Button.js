@@ -18,6 +18,7 @@ export const Button = styled.button`
 
 export const DelButton = styled(Button)`
   background: tomato;
+  color: black;
 `;
 
 

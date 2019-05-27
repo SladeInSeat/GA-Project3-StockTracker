@@ -1,25 +1,31 @@
 import React from 'react'
 import {Button} from './styledComponents/Button.js'
-import {SearchResultsContainer} from './styledComponents/Containers.js'
+import {StockContainer, StockTitle, StockData, Li} from './styledComponents/Containers.js'
 
 export default function SearchResults(props) {
 
     const stockList = props.stockList
     const viewStockList = stockList.map((stockObj, index) => {
         return (
-            <li key={index}>
-                 StockTicker: {stockObj.stockTicker}<br></br>
-                 StockPrice: {stockObj.price}<br></br>
-                 <Button onClick={()=>{props.addStockList(stockObj)}}>Add Stock</Button>
-            </li>
+            <Li key={index}>
+                <StockContainer>
+                    <StockTitle>{stockObj.stockTicker}</StockTitle>
+                    <br></br>
+                    <StockData>StockPrice: {stockObj.price}</StockData>
+                    <StockData>StockPrice: {stockObj.price}</StockData>
+                    <br></br>
+                    <Button onClick={()=>{props.addStockList(stockObj)}}>Add Stock</Button>
+                </StockContainer>
+
+            </Li>
         )
     })
     
     return (
-        <SearchResultsContainer>
+        <div>
             <ol>
                 {viewStockList}
             </ol>
-        </SearchResultsContainer>
+        </div>
     );
 }
