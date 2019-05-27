@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import SearchResults from './searchResultsRemove'
-import Button from './styledComponents/Button.js'
+import {Button, DelButton} from './styledComponents/Button.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
-import {SearchResultsContainer} from './styledComponents/Containers.js'
-
+import {SearchResultsContainer, Input} from './styledComponents/Containers.js'
 
 class accountDisplay extends Component {
     state = {
@@ -16,7 +15,7 @@ class accountDisplay extends Component {
         newAccountName: "",
         stockList: []
     }
-
+   
     componentDidMount() {
         axios.get("/account", {
             params: { parentUser: this.props.userId }
@@ -152,7 +151,7 @@ class accountDisplay extends Component {
                             removeStockList={this.removeStockList}
                         />
                         <br></br>
-                        <input
+                        <Input
                             type="text"
                             value={this.state.newAccountName}
                             onChange={this.handleAccountNameChange}
@@ -161,7 +160,7 @@ class accountDisplay extends Component {
                         <br></br>
                         <Button onClick={this.handleAccountCreate}>Create Account</Button>
                         <br></br>
-                        <Button onClick={this.handleAccountDelete}>Delete Account</Button>
+                        <DelButton onClick={this.handleAccountDelete}>Delete Account</DelButton>
                     </SearchResultsContainer>
                     :
                     <div>

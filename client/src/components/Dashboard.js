@@ -6,7 +6,7 @@ import AccountDisplay from "./accountDisplay.js"
 import SearchDisplay from './searchDisplay.js'
 import AppTitle from './styledComponents/AppTitle.js'
 import { Background, Column, DisplayContainer,
-     UserAccContainer, Navbar  } from './styledComponents/Containers.js'
+     UserAccContainer, Navbar, NavbarContainer  } from './styledComponents/Containers.js'
 
 class Dashboard extends Component {
     state = {
@@ -81,7 +81,8 @@ class Dashboard extends Component {
         return (
             <Background>
                 <Navbar>
-                    <AppTitle>Stock Tracker App</AppTitle>
+                    <AppTitle>Stock Tracker</AppTitle>
+                    <NavbarContainer>
                     {this.state.user.userName ?
                         <UserDisplay
                         user={this.state.user}
@@ -98,6 +99,7 @@ class Dashboard extends Component {
                     handleLoginQuery={this.handleLoginQuery}
                     />
                     }
+                    </NavbarContainer>
                 </Navbar>   
                     {this.state.user.userName ?
                         <Column>

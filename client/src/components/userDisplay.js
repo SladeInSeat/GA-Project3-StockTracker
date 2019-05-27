@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import Button from './styledComponents/Button.js'
-import {NavbarLi} from './styledComponents/Containers.js'
+import {Button, DelButton} from './styledComponents/Button.js'
+import {NavbarContainer, UserAccContainer} from './styledComponents/Containers.js'
+import UserTitle from './styledComponents/UserTitle'
+import AppTitle from './styledComponents/AppTitle.js'
+import {Input} from './styledComponents/Containers.js'
 
 class userDisplay extends Component{
 
@@ -9,17 +12,21 @@ class userDisplay extends Component{
         let handleUserLogout = this.props.handleUserLogout
         let handleUserDelete = this.props.handleUserDelete
         return(
-            <NavbarLi>
-                <h4>Welcome {newUserProps.userName}</h4>
-                        <Button onClick={handleUserLogout}>Log Out</Button>
-                        <input
+            <UserAccContainer>
+                <NavbarContainer>
+                    <AppTitle>Welcome, {newUserProps.userName}!</AppTitle>
+                </NavbarContainer>
+                <NavbarContainer>
+                        <DelButton onClick={handleUserDelete}>Delete this user</DelButton>
+                        <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
+                        <Input
                             type="text" 
                             value={this.props.newUserName}
                             onChange={this.props.handleUserNameChange}
                         />
-                        <Button onClick={this.props.handleUserNameUpdate}>Edit User Name</Button>
-                        <Button onClick={handleUserDelete}>Delete this user</Button>
-            </NavbarLi>
+                        <Button onClick={handleUserLogout}>Log Out</Button>
+                </NavbarContainer>
+            </UserAccContainer>
         )
     }
 };

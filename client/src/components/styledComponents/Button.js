@@ -16,6 +16,11 @@ export const Button = styled.button`
   }
 `;
 
+export const DelButton = styled(Button)`
+  background: tomato;
+`;
 
 
-export default Button;
+export default {
+  Button,
+  DelButton};

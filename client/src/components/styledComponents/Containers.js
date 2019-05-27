@@ -33,14 +33,12 @@ export const UserAccContainer = styled.div`
     display: flex;
     flex-direction: row;
     background: opacity(0.1);
-    justify-content: center;
-    align-items: stretch;
-    height: 40vh;
-    width: 85vw;
+    justify-content: flex-end;
+    align-items: base-line;
     flex-basis: auto;
-    flex-grow: 1;
-    padding: 5px;
     border: 2px blue solid;
+    flex-grow: 4;
+    height: 70px;
 `;
 
 export const DisplayContainer = styled.div`
@@ -80,19 +78,42 @@ export const SearchResultsContainer = styled.div`
 export const Navbar = styled.nav`
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
     margin: 0 0 1em 0;
-    padding: 0;
     list-style: none;
     height: 80px;
     align-items: center;
+    border: 3px solid black;
+`;
+
+export const NavbarContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex-basis: 0;
+    border: 2px brown solid;
+    flex-grow: 20;
+
+
 `;
 
 export const NavbarLi = styled.li`
-    display: block;
-    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-weight: bold;
     color: black;
+`;
+
+export const Input = styled.input`
+font-size: 13px;
+border-radius: 6px;
+border: 2px solid black;
+margin: .5em 1em;
+padding: 0.25em 1em;
+width: 8em;
 `;
 
 
@@ -105,5 +126,7 @@ export default {
     UserAccContainer,
     SearchResultsContainer,
     Navbar,
-    NavbarLi
+    NavbarLi,
+    NavbarContainer,
+    Input
 }

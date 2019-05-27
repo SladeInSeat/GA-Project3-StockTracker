@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './styledComponents/Button.js'
+import {Button} from './styledComponents/Button.js'
 
 export default function SearchResults(props) {
 
