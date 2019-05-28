@@ -3,6 +3,7 @@ const router = express.Router()
 const userController = require('../controllers/userController.js')
 const accountController = require('../controllers/accountController.js')
 const stockController = require('../controllers/stockController.js')
+const accToStkController = require('../controllers/accToStkController.js')
 
 //   show all users
 router.get("/users", userController.findAllUsers)
@@ -16,7 +17,7 @@ router.patch("/login", userController.login)
 //  find user by name
 router.get("/user", userController.findUserByName)
 
-//  create user //not used ?
+//  create user //not used, functionality covered by /login
 router.post("/users", userController.createUser)
 
 //  update user

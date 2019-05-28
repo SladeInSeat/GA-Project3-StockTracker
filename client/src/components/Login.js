@@ -1,11 +1,12 @@
 import React from 'react'
-import Button from './styledComponents/Button.js'
+import {Button} from './styledComponents/Button.js'
+import {Input} from './styledComponents/Containers.js'
 
 
 export default function Login(props){
     return (
         <div>
-            <input 
+            <Input 
                 type="text" 
                 value={props.loginQeury}
                 onChange={props.handleLogInChange}
