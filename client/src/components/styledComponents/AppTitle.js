@@ -6,7 +6,7 @@ export const AppTitle=styled.div`
     justify-content: center;
     margin: 3px;
     padding: 5px;
-    background: #512CE8;
+    background: opacity(0.1);
     font-size: 40px;
     color: black;
     font-weight: 800;

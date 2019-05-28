@@ -80,8 +80,9 @@ export const Navbar = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    background: opacity(0.1);
     width: 100vw;
-    margin: 0 0 1em 0;
+    padding: 1em 0 1em 0;
     list-style: none;
     min-height: 10vh;
     align-items: center;
