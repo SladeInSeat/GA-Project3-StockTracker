@@ -50,12 +50,22 @@ const stockController = {
                     keywords: req.query.keywords, 
                     apikey: process.env.ALPHAVANTAGE_API_KEY }})
             .then((apiResponse) => {
-                res.json(apiResponse.data)
+                let stockList = []
+                for (i = 0; i < Object.keys(apiResponse.data.bestMatches).length; i++){
+                    let tempStock = {}
+                    tempStock['stockName'] = apiResponse.data.bestMatches[i]["2. name"]
+                    tempStock['stockTicker'] = apiResponse.data.bestMatches[i]["1. symbol"]
+                    tempStock['price'] = 0
+                    tempStock['parentAccount'] = null
+                    stockList.push(tempStock)
+                }
+                res.json(stockList)
             })
             .catch((err) => {
                 console.log(err)
             })
-    }
+    },
+
 }
 
 module.exports = stockController;

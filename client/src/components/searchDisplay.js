@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SearchResults2 from './searchResultsAdd'
+import SearchResultsAdd from './searchResultsAdd'
 import SearchForm from './searchForm.js'
 import DisplayTitle from './styledComponents/DisplayTitle.js'
 import axios from 'axios'
@@ -27,8 +27,15 @@ class SearchDisplay extends Component {
         this.setState({ searchCriteria: event.target.value })
     }
 
+    // handleLSearchCriteriaQuery = () => {
+    //     axios.get("/stocks/ticker", { params: {stockTicker: this.state.searchCriteria} }
+    //     ).then((res) => {
+    //         this.setState({ stockList: res.data })
+    //     })
+    // }
+
     handleLSearchCriteriaQuery = () => {
-        axios.get("/stocks/ticker", { params: {stockTicker: this.state.searchCriteria} }
+        axios.get("/stocks/search", { params: {keywords: this.state.searchCriteria} }
         ).then((res) => {
             this.setState({ stockList: res.data })
         })
@@ -50,7 +57,7 @@ class SearchDisplay extends Component {
                     />
                 </div>
                 <div>
-                    <SearchResults2 accountId={this.state.accountId}
+                    <SearchResultsAdd accountId={this.state.accountId}
                                    stockList= {this.state.stockList}
                                    addStockList={this.addStockList}/>
                 </div>

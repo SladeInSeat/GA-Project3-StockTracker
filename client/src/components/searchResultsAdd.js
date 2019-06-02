@@ -11,8 +11,7 @@ export default function SearchResults(props) {
                 <StockContainer>
                     <StockTitle>{stockObj.stockTicker}</StockTitle>
                     <br></br>
-                    <StockData>StockPrice: {stockObj.price}</StockData>
-                    <StockData>StockPrice: {stockObj.price}</StockData>
+                    <StockData>StockPrice: {stockObj.stockName}</StockData>
                     <br></br>
                     <Button onClick={()=>{props.addStockList(stockObj)}}>Add Stock</Button>
                 </StockContainer>
