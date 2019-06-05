@@ -6,10 +6,11 @@
 
   The app uses AlphaVantages API to search and display stocks, which is limited to 5  queries a minutes, so please be aware!
   
-  Curretly, the app is between 'releases' and the new search functionality requires a rework of
-  models and controllers involved with keeping track of stock/account relationship. I am pretty happy about getting the API to work, so have gone ahead and published the progress. I'll be circling around quickly to rework the model and controller.
+  The existing users Slade and Sam both have accounts and stocks assigned to them, but feel free to create your own users and accounts, and add stocks to them.
 
-  The existing users Slade and Sam both have accounts and stocks assigned to them, but feel free to create your own users and accounts.
+  Curretly, the app is between 'releases'.  Next inline for refactoring is to enable another api call which will populate the price for stocks in account.
+
+  
 
 ## Technologies used:
   MERN stack (MongoDb, Express, React, Node), styled-components/css, git, git-hub Projects, Heroku, 3rd party API
@@ -50,6 +51,8 @@ so that passing information will be more streamlined regarding paths and reusabl
 
 ## Stretch Goals Remaining:
 * ~Implement search function~
-* create many-to-many relationships between stock/account and account/user
+* ~create many-to-many relationships between stock/account and account/user~
 * ~implement a 3rd party api to populate search returns~
+* implement another api call to populate current price
+* refactor stock model and controller to more efficiently track relationship between stocks and accounts
 * (much) Better styling
