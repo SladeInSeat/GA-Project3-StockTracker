@@ -3,6 +3,7 @@ let ObjectId = mongoose.Schema.Types.ObjectId;
 
 const AccntsToStocksSchema = mongoose.Schema({
     parentUser : ObjectId,
+    parentAccount: ObjectId,
     stockId : ObjectId,
     qty : Number
 });

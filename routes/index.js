@@ -60,4 +60,6 @@ router.patch("/stocks/removeParentAccount", stockController.removeStockParentAcc
 //  search for stock with AlphaVantage Search API
 router.get("/stocks/search", stockController.searchStocks)
 
+router.patch("/stocks/addStkAcc", accToStkController.createAccStkRecord)
+
 module.exports = router 

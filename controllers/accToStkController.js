@@ -18,6 +18,7 @@ const accToStkController = {
     createAccStkRecord: async function (req, res) {
         let newRecord = await AccountsAndStocks.create({
             parentUser: req.body.parentUser,
+            parentAccount: req.body.parentAccount,
             stockId: req.body.stockId,
             qty: 0              // qty hardcoded to 0 for now
         })                   
