@@ -54,6 +54,9 @@ router.get("/stocks/parentAccount/", stockController.findStockByParent)
 // add id to accountParent
 router.patch("/stocks/setParentAccount", stockController.setStockParentAccount)
 
+//  create stock
+router.post("/stocks", stockController.createStock)
+
 // remove id from accountParent
 router.patch("/stocks/removeParentAccount", stockController.removeStockParentAccount)
 
