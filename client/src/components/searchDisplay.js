@@ -11,11 +11,13 @@ class SearchDisplay extends Component {
         accountId: "",
         stockList: [],
         searchCriteria: "",
+        userId: ""
     };
 
 
     componentDidMount() {
-        this.setState({accountId : this.props.activeAccount})
+        this.setState({accountId : this.props.activeAccount,
+                        userId : this.props.userId})
     }
 
     componentDidUpdate(prevProps) {
@@ -41,11 +43,26 @@ class SearchDisplay extends Component {
         })
     }
 
+    // addStockList = (stockObj) => {
+    //     axios.patch("/stocks/setParentAccount", { stockId: stockObj._id, parentAccount: this.state.accountId })
+    //         .then((editedStock) => {
+    //             console.log(editedStock.data)
+    //         }).then(this.props.handleStockAdded)
+    // }
+
     addStockList = (stockObj) => {
-        axios.patch("/stocks/setParentAccount", { stockId: stockObj._id, parentAccount: this.state.accountId })
+        axios.patch("/stocks/addStkAcc", { stockTicker: stockObj.stockTicker, 
+                                            parentAccount: this.state.accountId})
             .then((editedStock) => {
+                console.log('from addStockList\n')
                 console.log(editedStock.data)
-            }).then(this.props.handleStockAdded)
+            })
+            .then(() => {
+                axios.post("/stocks", {stockName : stockObj.stockName,
+                                        stockTicker: stockObj.stockTicker,
+                                        parentAccount: this.state.accountId})
+            })
+            .then(this.props.handleStockAdded) 
     }
 
     render(){

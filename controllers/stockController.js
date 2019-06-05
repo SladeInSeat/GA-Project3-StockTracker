@@ -66,6 +66,14 @@ const stockController = {
             })
     },
 
+    createStock: async function (req,res) {
+        let newStock = await Stock.create( {stockName : req.body.stockName,
+                                            stockTicker : req.body.stockTicker,
+                                            price: 919,
+                                            parentAccount: req.body.parentAccount})
+        return res.json(newStock)
+    },
+
 }
 
 module.exports = stockController;

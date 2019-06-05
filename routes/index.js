@@ -54,10 +54,15 @@ router.get("/stocks/parentAccount/", stockController.findStockByParent)
 // add id to accountParent
 router.patch("/stocks/setParentAccount", stockController.setStockParentAccount)
 
+//  create stock
+router.post("/stocks", stockController.createStock)
+
 // remove id from accountParent
 router.patch("/stocks/removeParentAccount", stockController.removeStockParentAccount)
 
 //  search for stock with AlphaVantage Search API
 router.get("/stocks/search", stockController.searchStocks)
+
+router.patch("/stocks/addStkAcc", accToStkController.createAccStkRecord)
 
 module.exports = router 

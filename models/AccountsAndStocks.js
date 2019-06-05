@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 let ObjectId = mongoose.Schema.Types.ObjectId;
 
 const AccntsToStocksSchema = mongoose.Schema({
-    parentUser : ObjectId,
-    stockId : ObjectId,
+    parentAccount: ObjectId,
+    stockTicker : String,
     qty : Number
 });
 
